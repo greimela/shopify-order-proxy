@@ -12,13 +12,13 @@ export default {
 		const shopifyUrl = `https://${shopName}${url.pathname}${url.search}`;
 		const modifiedRequest = new Request(shopifyUrl, request);
 
-		const orderRegex = /\/admin\/api\/2023-10\/orders\/(\d+)\.json/;
-		const transactionRegex = /\/admin\/api\/2023-10\/orders\/(\d+)\/transactions.json/;
+		const orderRegex = /\/admin\/api\/2020-07\/orders\/(\d+)\.json/;
+		const transactionRegex = /\/admin\/api\/2020-07\/orders\/(\d+)\/transactions.json/;
 
 		let allowed = false;
 		if (url.pathname === '/admin/oauth/access_scopes.json') {
 			allowed = true;
-		} else if (url.pathname === '/admin/api/2023-10/orders/count.json') {
+		} else if (url.pathname === '/admin/api/2020-07/orders/count.json') {
 			allowed = true;
 		} else if (orderRegex.test(url.pathname)) {
 			if (
